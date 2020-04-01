@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "224563809611",
+    "firebase_url": "https://camp-activities.firebaseio.com",
+    "project_id": "camp-activities",
+    "storage_bucket": "camp-activities.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224563809611:android:40156e1c34acfc65c1ecce",
+        "android_client_info": {
+          "package_name": "com.melikebilen.camp_activities"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224563809611-shsrbmnd7nvc59518vp545ip26neaf43.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.melikebilen.camp_activities",
+            "certificate_hash": "9266ec0688075b428f2d5cf6698e8eb595b95978"
+          }
+        },
+        {
+          "client_id": "224563809611-9fgpt06qrqvq3kh0ohc4k3tactqgv67r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYjckMW7CIMuyvdB5Fv0NKm4JYUl-l610"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224563809611-9fgpt06qrqvq3kh0ohc4k3tactqgv67r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
