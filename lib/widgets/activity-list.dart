@@ -1,6 +1,7 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:camp_activities/models/activity.dart';
+import 'activity-tile.dart';
 
 //The activity list is stateful becaaause it will change! If any activity gets added or removed! it will be changed!!!
 
@@ -10,6 +11,7 @@ class ActivityList extends StatefulWidget {
 }
 
 class _ActivityListState extends State<ActivityList> {
+
   
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,13 @@ class _ActivityListState extends State<ActivityList> {
       print(activity.period);
     }
     );
-    // return ListView.builder(
-    //   itemCount: activities.length,
-    //   itemBuilder:(context,index){
-    //     return ActivitytTile();
+    return ListView.builder(
+      itemCount: activities.length,
+      itemBuilder:(context,index){
+        return ActivityTile(activity:activities[index]);
 
-    // }
-    // );
-  }
+    }
+    );
+  
+}
 }

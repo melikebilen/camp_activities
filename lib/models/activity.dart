@@ -3,7 +3,8 @@ class Activity {
   final String activityName;
   final String counselorName;
   final String period;
-  Activity({this.uid, this.activityName, this.counselorName, this.period});
+  final String department;
+  Activity({this.uid,this.department ,this.activityName, this.counselorName, this.period});
 }
 
 //Userlar için ayrıca bir user dataya ihtiyaç duymamızın nedeni user ile userın bilgilerini birleştirmek için uid kullanmamızdı glb

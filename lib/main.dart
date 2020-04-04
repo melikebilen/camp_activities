@@ -11,7 +11,8 @@ import 'package:provider/provider.dart';
 import 'screens/AdminScreen.dart';
 import 'models/camper.dart';
 import 'services/database-camper.dart';
-
+import 'package:camp_activities/services/database-activity.dart';
+import 'widgets/choose-activity-form.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
         StreamProvider<List<Activity>>.value(
             value: ActivityDatabase().activities),
         StreamProvider<List<Camper>>.value(value: CamperDatabase().campers),
+        StreamProvider<Camper>.value(value: CamperDatabase().currentCamperData),
+        StreamProvider<List<Activity>>.value(value: ActivityDatabase().activities), //activities için stream provider sağladık bu streame ulaşabileceğiz çeşitli yerlerden
       ],
 
       child: MaterialApp(
@@ -38,6 +41,7 @@ class MyApp extends StatelessWidget {
           Home.routeName: (ctx) => Home(),
           AuthenticateScreen.routeName: (ctx) => AuthenticateScreen(),
           AdminScreen.routeName: (ctx) => AdminScreen(),
+          ChooseActivityForm.routeName:(ctx)=> ChooseActivityForm(),
         },
       ),
     );

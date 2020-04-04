@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:camp_activities/models/counselor.dart';
 
 class DatabaseService {
+//the one related with counselors!
+
   //thiss will be equal to counselor id!
   final String uid;
   DatabaseService({this.uid});

@@ -18,8 +18,6 @@ class _CamperListState extends State<CamperList> {
       print(camper.nameSurname);
     });
 
-
-
     return ListView.builder(
       itemCount: campers.length,
       itemBuilder: (context,index){
