@@ -51,7 +51,7 @@ class CamperDatabase {
 
 
   Future updateCamperData(String act1, String act2, String act3) async {
-    return await camperCollection.document(uid).setData({
+    return await camperCollection.document(uid).updateData({
       'activity1': act1,
       'activity2': act2,
       'activity3': act3,

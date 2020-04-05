@@ -150,7 +150,7 @@ class _SignInState extends State<SignIn> {
                     //SIGN IN BUTTON
                     RaisedButton(
                       color: Colors.pink[200],
-                      child: Text('Sign in'),
+                      child: Text('Sign in',style: TextStyle(color: Colors.white),),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           //validate şeyini hallet burada

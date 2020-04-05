@@ -17,12 +17,12 @@ class _ActivityListState extends State<ActivityList> {
   Widget build(BuildContext context) {
     final activities = Provider.of<List<Activity>>(context) ?? [];
 
-    activities.forEach((activity){
-      print(activity.activityName);
-      print(activity.counselorName);
-      print(activity.period);
-    }
-    );
+    // activities.forEach((activity){
+    //   print(activity.activityName);
+    //   print(activity.counselorName);
+    //   print(activity.period);
+    // }
+    // );
     return ListView.builder(
       itemCount: activities.length,
       itemBuilder:(context,index){

@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:camp_activities/models/camper.dart';
 import 'package:camp_activities/services/database-camper.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
+import 'package:camp_activities/models/activity.dart';
+import 'package:camp_activities/services/database-activity.dart';
+import 'package:camp_activities/shared/constants.dart';
 
 class ChooseActivityForm extends StatefulWidget {
   static const routeName = '/activity-form';
@@ -16,96 +21,122 @@ class ChooseActivityForm extends StatefulWidget {
 
 class _ChooseActivityFormState extends State<ChooseActivityForm> {
   final formKey = GlobalKey<FormState>();
-  String _currentAct1='first minor';
-  String _currentAct2 = 'second minor';
-  String _currentAct3 = 'third minor';
+  String _currentAct1;
+  String _currentAct2;
+  String _currentAct3;
 
-  final List<String> act = ['act1', 'act2', 'act3'];
+  //final List<String> act = ['act1', 'act2', 'act3'];
 
   @override
   Widget build(BuildContext context) {
     String uid; // CAMPER TILE'DAN ALICAZ BUNU
     Camper chosenCamper = ModalRoute.of(context).settings.arguments;
-    // final camper = Provider.of<Camper>(context);
-
+    final activities = Provider.of<List<Activity>>(context) ?? [];
     return StreamBuilder<Camper>(
       stream: CamperDatabase(uid: chosenCamper.uid).currentCamperData,
       builder: (context, snapshot) {
-        //that snapshot doesnt come from database
         if (snapshot.hasData) {
           Camper camper = snapshot.data;
           print('I MADE SNAPSHOTS WOOOOOOOOOOOOOOOOOOORK ');
           return Scaffold(
-              appBar: AppBar(
-                title: Text('Choose activity'),
-              ),
-              body: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                        'Choose ${camper.nameSurname}\'s Activites for today! '),
-                  ),
-                  SizedBox(height: 10,),
-                  Container(
-                    height: 200,
-                   
-                    child: ShowActivities()),    /////////////////AKTİVİTELERİ BURADA GÖSTERDİİİİİİİİİİM
-                    
-
-                  Form(
-                    key: formKey,
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: 10,
-                        ),
-
-                        // Text('Choose first minor'),
-                        // DropdownButtonFormField(
-                        //   value: _currentAct1 ?? camper.activity1,
-                        //   items: act.map((activity) {
-                        //     return DropdownMenuItem(
-                        //       value: activity,
-                        //       child: Text('$activity is the activity chosen'),
-                        //     );
-                        //   }).toList(),
-                        //   onChanged: (val) {
-                        //     setState(() {
-                        //       _currentAct1 = val;
-                        //     });
-                        //   },
-                        // ),
-                        // Text('Choose second minor'),
-                        // DropdownButtonFormField(
-                        //   value: _currentAct2 ?? camper.activity2,
-                        // ),
-                        // Text('Choose third minor'),
-                        // DropdownButtonFormField(
-                        //   value: _currentAct3 ?? camper.activity3,
-                        // ),
-                      ],
+            appBar: AppBar(
+              title: Text('Choose ${camper.nameSurname}\'s activities'),
+            ),
+            body: Padding(
+               padding: EdgeInsets.only(top: 8),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: 10,
                     ),
-                  )
-                ],
-              ));
+                    Text('Choose ${camper.nameSurname}\'s first minor'),
+                    Card(
+                      elevation: 5,
+                      margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
+                      child: DropdownButtonFormField(
+                        value: _currentAct1 ?? camper.activity1,
+                        items: activities.map((activity) {
+                          return DropdownMenuItem(
+                            value: activity.activityName,
+                            child: Text(activity.activityName),
+                          );
+                        }).toList(),
+                        onChanged: (val) {
+                          setState(() {
+                            _currentAct1 = val;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text('Choose ${camper.nameSurname}\'s second minor'),
+                    Card(
+                      elevation: 5,
+                      margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
+                      child: DropdownButtonFormField(
+                        
+                        value: _currentAct2 ?? camper.activity2,
+                        items: activities.map((activity) {
+                          return DropdownMenuItem(
+                            value: activity.activityName,
+                            child: Text(activity.activityName),
+                          );
+                        }).toList(),
+                        onChanged: (val) {
+                          setState(() {
+                            _currentAct2 = val;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('Choose ${camper.nameSurname}\'s third minor'),
+                    Card(
+                      margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
+                      elevation: 5,
+                      child: DropdownButtonFormField(
+                        value: _currentAct3 ?? camper.activity3,
+                        items: activities.map((activity) {
+                          return DropdownMenuItem(
+                            value: activity.activityName,
+                            child: Text(activity.activityName),
+                          );
+                        }).toList(),
+                        onChanged: (val) {
+                          setState(() {
+                            _currentAct3 = val;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    RaisedButton(
+                      color: Theme.of(context).primaryColor,
+                      child: Text('Save'),
+                      onPressed: () async {
+                        await CamperDatabase(uid: camper.uid).updateCamperData(
+                            _currentAct1 ?? camper.activity1,
+                            _currentAct2 ?? camper.activity2,
+                            _currentAct3 ?? camper.activity3);
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
         } else {
           print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
           return Loading();
         }
       },
     );
-
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text('${chosenCamper.nameSurname}\'s Activities!,${chosenCamper.activity1}'),
-    //   ),
-    //   body: Form(
-    //     key: formKey,
-    //     child: Text('yay'),
-    //   ),
-    // );
-    //body:
   }
 }
