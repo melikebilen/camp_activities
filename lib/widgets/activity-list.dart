@@ -6,6 +6,7 @@ import 'activity-tile.dart';
 //The activity list is stateful becaaause it will change! If any activity gets added or removed! it will be changed!!!
 
 class ActivityList extends StatefulWidget {
+  static const routeName = '/activity-list';
   @override
   _ActivityListState createState() => _ActivityListState();
 }

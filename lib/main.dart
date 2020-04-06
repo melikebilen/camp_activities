@@ -13,6 +13,8 @@ import 'models/camper.dart';
 import 'services/database-camper.dart';
 import 'package:camp_activities/services/database-activity.dart';
 import 'widgets/choose-activity-form.dart';
+import 'package:camp_activities/widgets/activity-list.dart';
+import 'widgets/add-activity-form.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
           AuthenticateScreen.routeName: (ctx) => AuthenticateScreen(),
           AdminScreen.routeName: (ctx) => AdminScreen(),
           ChooseActivityForm.routeName:(ctx)=> ChooseActivityForm(),
+          AddActivityForm.routeName: (ctx)=> AddActivityForm(),
+
         },
       ),
     );

@@ -1,10 +1,12 @@
 import 'package:camp_activities/screens/home.dart';
 import 'package:camp_activities/shared/loading.dart';
+import 'package:camp_activities/widgets/activity-list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:camp_activities/services/auth.dart';
 import 'package:camp_activities/models/counselor.dart';
 import 'home.dart';
+import 'package:camp_activities/widgets/add-activity-form.dart';
 class AdminScreen extends StatefulWidget {
   static const routeName = '/admin-screen';
 
@@ -31,10 +33,10 @@ class _AdminScreenState extends State<AdminScreen> {
       //         label: Text('log out'),
       //       )
       //     ],),
-      body: Center(
-        child: Text('ADMIN IN THE HOUSE') , //
-      ),
-    floatingActionButton:FloatingActionButton(child: Text('add activity'),),
+      body: ActivityList(), //
+      ////////////////////////////////////////////////////////////////////////////////BURADA A
+    floatingActionButton:FloatingActionButton(child: Text('add activity'),
+    onPressed:(){ Navigator.of(context).pushNamed(AddActivityForm.routeName);},),
     );
   }
 }
