@@ -2,6 +2,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:camp_activities/models/activity.dart';
 import 'activity-tile.dart';
+import 'admin-activity-tile.dart';
 
 //The activity list is stateful becaaause it will change! If any activity gets added or removed! it will be changed!!!
 
@@ -27,7 +28,7 @@ class _ActivityListState extends State<ActivityList> {
     return ListView.builder(
       itemCount: activities.length,
       itemBuilder:(context,index){
-        return ActivityTile(activity:activities[index]);
+        return AdminActivityTile(activity:activities[index]);
 
     }
     );
