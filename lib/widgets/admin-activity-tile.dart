@@ -19,7 +19,19 @@ class AdminActivityTile extends StatelessWidget {
               leading: CircleAvatar(child: Text('${activity.period}'),backgroundColor: Theme.of(context).primaryColor, radius: 25,),
               title: Text('${activity.activityName}'),
               subtitle: Text('${activity.counselorName}'),
-              trailing: IconButton(icon: Icon(Icons.delete), color: Colors.red , onPressed:()async{ await activityDatabase.deleteActivity(activity.uid);} ,) ,
+              trailing: IconButton(icon: Icon(Icons.delete), color: Colors.red ,
+              // onPressed:()async{ await activityDatabase.deleteActivity(activity.uid);} ,
+              onPressed: (){showDialog(
+                barrierDismissible: false,
+                context: context, 
+                builder:(_)=> AlertDialog(
+                  content: Text('Do you want to delete the activity?'),
+                  actions: <Widget>[
+                    FlatButton(child: Text('Yes'),onPressed:()async{Navigator.of(context).pop(); await activityDatabase.deleteActivity(activity.uid);
+                    }),
+                    FlatButton(child: Text('No'),onPressed:()=> Navigator.of(context).pop(),),
+                  ],));},
+               ) ,
             ),
           ));    
   }
