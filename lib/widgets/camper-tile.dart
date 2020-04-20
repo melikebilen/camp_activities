@@ -17,8 +17,10 @@ class CamperTile extends StatelessWidget {
         elevation: 5,
         margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
         child: ListTile(
+          leading: CircleAvatar(child: Text('${camper.bunk}'),backgroundColor: Theme.of(context).primaryColor, radius: 25,), 
           title:
-              Text('${camper.nameSurname},${camper.activity1},${camper.bunk},${camper.uid}'),
+              Text('${camper.nameSurname}'),
+
           onTap: () {
              Navigator.of(context).pushNamed(ChooseActivityForm.routeName,arguments: camper);
             //KAMPÇILARI DİNLEYEN BİR PROVIDER YARATSAK VE BU SEÇİLDİĞİNDE UYARSAK ONU????????????????????????????????????
@@ -33,6 +35,7 @@ class CamperTile extends StatelessWidget {
             //       Container(child: ChooseActivityForm(),);
             //     });
           },
+          
         ),
       ),
     );

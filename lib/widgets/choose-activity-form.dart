@@ -32,6 +32,14 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
     String uid; // CAMPER TILE'DAN ALICAZ BUNU
     Camper chosenCamper = ModalRoute.of(context).settings.arguments;
     final activities = Provider.of<List<Activity>>(context) ?? [];
+   
+
+    final activities1 = activities.where((act) => act.period=='1').toList() ?? []; 
+    final activities2 = activities.where((act) => act.period=='2').toList() ?? []; 
+    final activities3 = activities.where((act) => act.period=='3').toList() ?? []; 
+
+
+
     return StreamBuilder<Camper>(
       stream: CamperDatabase(uid: chosenCamper.uid).currentCamperData,
       builder: (context, snapshot) {
@@ -57,7 +65,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                       margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
                       child: DropdownButtonFormField(
                         value: _currentAct1 ?? camper.activity1,
-                        items: activities.map((activity) {
+                        items: activities1.map((activity) {
                           return DropdownMenuItem(
                             value: activity.activityName,
                             child: Text(activity.activityName),
@@ -80,7 +88,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                       child: DropdownButtonFormField(
                         
                         value: _currentAct2 ?? camper.activity2,
-                        items: activities.map((activity) {
+                        items: activities2.map((activity) {
                           return DropdownMenuItem(
                             value: activity.activityName,
                             child: Text(activity.activityName),
@@ -102,7 +110,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                       elevation: 5,
                       child: DropdownButtonFormField(
                         value: _currentAct3 ?? camper.activity3,
-                        items: activities.map((activity) {
+                        items: activities3.map((activity) {
                           return DropdownMenuItem(
                             value: activity.activityName,
                             child: Text(activity.activityName),

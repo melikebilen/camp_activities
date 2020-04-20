@@ -24,7 +24,10 @@ class ActivityDatabase {
   Stream<List<Activity>> get activities {
     return activityCollection.snapshots().map(_activityListFromSnapshot);
   }
+
   
+
+
 
  Future deleteActivity(String uid) async {
  await activityCollection.document(uid).delete();
