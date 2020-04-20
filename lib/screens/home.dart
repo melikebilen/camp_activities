@@ -9,6 +9,7 @@ import '../services/auth.dart';
 import 'package:camp_activities/models/activity.dart';
 import 'package:camp_activities/models/counselor.dart';
 import 'package:flutter/foundation.dart';
+import 'ChooseDepartmentScreeen.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/home-screen';
@@ -61,8 +62,9 @@ class _HomeState extends State<Home> {
               // print(  'NAME SURNAME ${dataOfCounselor.nameSurname},IS ADMIN ${dataOfCounselor.isAdmin}');
               if (goToAdmin == false) {
                 if (dataOfCounselor.isAdmin) {
-                return AdminScreen();
-                
+                return ChooseDepartmentScreen();
+              //  AdminScreen();
+                  
                   // goToAdmin = true;   
                   // WidgetsBinding.instance.addPostFrameCallback((_) =>
                       // Navigator.of(context).pushNamed(AdminScreen.routeName,
@@ -74,7 +76,6 @@ class _HomeState extends State<Home> {
                 child: CamperList(),
               ); //BUNK LISTS WILL BE HERE
             }
-
             return Loading();
           },
         ));

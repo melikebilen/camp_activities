@@ -35,8 +35,10 @@ class _AdminScreenState extends State<AdminScreen> {
       //     ],),
       body: ActivityList(), //
       ////////////////////////////////////////////////////////////////////////////////BURADA A
-    floatingActionButton:FloatingActionButton(child: Text('add activity'),
-    onPressed:(){ Navigator.of(context).pushNamed(AddActivityForm.routeName);},),
+   
+   //BU Aşağıdaki özelliği ben  ActivityList'e ekledim :) 
+   // floatingActionButton:FloatingActionButton(child: Text('add activity'),
+   // onPressed:(){ Navigator.of(context).pushNamed(AddActivityForm.routeName);},),
     );
   }
 }

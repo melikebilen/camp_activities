@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 
 class AdminActivityTile extends StatelessWidget {
   final Activity activity;
-  AdminActivityTile({this.activity});
+  final String dept;
+  AdminActivityTile({this.activity,this.dept});
   ActivityDatabase activityDatabase= ActivityDatabase();
   
   @override
   Widget build(BuildContext context) {
-    return 
+    return activity.department == dept ?
       Padding(
           padding: EdgeInsets.only(top: 8),
           child: Card(
@@ -33,6 +34,7 @@ class AdminActivityTile extends StatelessWidget {
                   ],));},
                ) ,
             ),
-          ));    
+          )  
+          )    : SizedBox(height: 0,) ;
   }
 }

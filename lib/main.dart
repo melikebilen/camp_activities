@@ -1,5 +1,4 @@
 import 'package:camp_activities/models/activity.dart';
-
 import 'package:camp_activities/models/counselor.dart';
 import 'package:camp_activities/screens/authenticateScreen.dart';
 import 'package:camp_activities/services/database-activity.dart';
@@ -15,6 +14,7 @@ import 'package:camp_activities/services/database-activity.dart';
 import 'widgets/choose-activity-form.dart';
 import 'package:camp_activities/widgets/activity-list.dart';
 import 'widgets/add-activity-form.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,7 +28,9 @@ class MyApp extends StatelessWidget {
             value: ActivityDatabase().activities),
         StreamProvider<List<Camper>>.value(value: CamperDatabase().campers),
         StreamProvider<Camper>.value(value: CamperDatabase().currentCamperData),
-        StreamProvider<List<Activity>>.value(value: ActivityDatabase().activities), //activities için stream provider sağladık bu streame ulaşabileceğiz çeşitli yerlerden
+        StreamProvider<List<Activity>>.value(
+            value: ActivityDatabase()
+                .activities), //activities için stream provider sağladık bu streame ulaşabileceğiz çeşitli yerlerden
       ],
 
       child: MaterialApp(
@@ -43,9 +45,9 @@ class MyApp extends StatelessWidget {
           Home.routeName: (ctx) => Home(),
           AuthenticateScreen.routeName: (ctx) => AuthenticateScreen(),
           AdminScreen.routeName: (ctx) => AdminScreen(),
-          ChooseActivityForm.routeName:(ctx)=> ChooseActivityForm(),
-          AddActivityForm.routeName: (ctx)=> AddActivityForm(),
-
+          ChooseActivityForm.routeName: (ctx) => ChooseActivityForm(),
+          AddActivityForm.routeName: (ctx) => AddActivityForm(),
+          ActivityList.routeName: (ctx) => ActivityList(),
         },
       ),
     );
