@@ -4,21 +4,14 @@ import 'package:camp_activities/models/activity.dart';
 import 'activity-tile.dart';
 import 'admin-activity-tile.dart';
 import 'add-activity-form.dart';
-
-//The activity list is stateful becaaause it will change! If any activity gets added or removed! it will be changed!!!
-
-class ActivityList extends StatefulWidget {
-  static const routeName = '/activity-list';
+class ActivityList2 extends StatefulWidget {
   @override
-  _ActivityListState createState() => _ActivityListState();
+  _ActivityList2State createState() => _ActivityList2State();
 }
 
-class _ActivityListState extends State<ActivityList> {
-
-  
+class _ActivityList2State extends State<ActivityList2> {
   @override
   Widget build(BuildContext context) {
-    String chosenDept= ModalRoute.of(context).settings.arguments ?? 'all';
     final activities = Provider.of<List<Activity>>(context) ?? [];
 
     // activities.forEach((activity){
@@ -28,16 +21,14 @@ class _ActivityListState extends State<ActivityList> {
     // }
     // );
     return Scaffold(
-      appBar: AppBar(title: Text(chosenDept),),
           body: ListView.builder(
         itemCount: activities.length,
         itemBuilder:(context,index){
-         return AdminActivityTile(activity:activities[index],dept:chosenDept);
+         return ActivityTile(activity:activities[index]);
       }
       ),
-    floatingActionButton:FloatingActionButton(child: Text('add activity'),
-    onPressed:(){ Navigator.of(context).pushNamed(AddActivityForm.routeName);},),
+  
     );
   
-}
+  }
 }

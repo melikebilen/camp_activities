@@ -1,4 +1,5 @@
 import 'package:camp_activities/screens/AdminScreen.dart';
+import 'package:camp_activities/screens/CounselorScreen.dart';
 import 'package:camp_activities/services/auth.dart';
 import 'package:camp_activities/services/database-service.dart';
 import 'package:camp_activities/shared/loading.dart';
@@ -73,7 +74,7 @@ class _HomeState extends State<Home> {
                 }
               }
               return Container(
-                child: CamperList(),
+                child: CounselorScreen(),
               ); //BUNK LISTS WILL BE HERE
             }
             return Loading();
