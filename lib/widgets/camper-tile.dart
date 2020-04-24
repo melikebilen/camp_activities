@@ -6,12 +6,13 @@ import 'package:camp_activities/services/database-camper.dart';
 
 class CamperTile extends StatelessWidget {
   final Camper camper;
-  CamperTile({this.camper});
+   final String bunk;
+  CamperTile({this.camper,this.bunk});
 
   @override
   Widget build(BuildContext context) {
     //CamperDatabase camperDatabaseObj = CamperDatabase(uid:camper.uid);
-    return Padding(
+    return camper.bunk== bunk ? Padding(
       padding: EdgeInsets.only(top: 8), // top left right bottom.. one of them
       child: Card(
         elevation: 5,
@@ -38,7 +39,7 @@ class CamperTile extends StatelessWidget {
           
         ),
       ),
-    );
+    ) : SizedBox(height: 0,);
   }
 }
 

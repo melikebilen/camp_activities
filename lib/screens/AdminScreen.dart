@@ -1,3 +1,4 @@
+import 'package:camp_activities/screens/ChooseDepartmentScreeen.dart';
 import 'package:camp_activities/screens/home.dart';
 import 'package:camp_activities/shared/loading.dart';
 import 'package:camp_activities/widgets/activity-list.dart';
@@ -15,13 +16,55 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
+   int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+    static List<Widget> _widgetOptions = <Widget>[
+    ChooseDepartmentScreen(),
+     ActivityList(),
+    ActivityList(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+      return Scaffold(
+       body: Center(
+      child: _widgetOptions.elementAt(_selectedIndex),
+    ),
+    bottomNavigationBar: BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text('Dept'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.business),
+          title: Text('Enquiry'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.local_activity),
+          title: Text('Tüm aktiviteler'),
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Theme.of(context).accentColor,
+      onTap: _onItemTapped,
+    ),
+    );
     
     
-    final AuthService _auth = AuthService();
+
+  }
+  }
+//    final AuthService _auth = AuthService();
     /////////////////////////////////////////////////////ADMİN SCREENİN LOG OUTU NEDEN ÇALIŞMIYOOORR!!!!!!!!!!!!
-    return Scaffold(
+ //   return Scaffold(
       // appBar: AppBar(title: Text('Admin screen'),
       //     actions: <Widget>[
       //       FlatButton.icon(
@@ -33,12 +76,12 @@ class _AdminScreenState extends State<AdminScreen> {
       //         label: Text('log out'),
       //       )
       //     ],),
-      body: ActivityList(), //
+      //body: ActivityList(), //
       ////////////////////////////////////////////////////////////////////////////////BURADA A
    
    //BU Aşağıdaki özelliği ben  ActivityList'e ekledim :) 
    // floatingActionButton:FloatingActionButton(child: Text('add activity'),
    // onPressed:(){ Navigator.of(context).pushNamed(AddActivityForm.routeName);},),
-    );
-  }
-}
+  //  );
+//  }
+//}

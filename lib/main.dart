@@ -14,7 +14,7 @@ import 'package:camp_activities/services/database-activity.dart';
 import 'widgets/choose-activity-form.dart';
 import 'package:camp_activities/widgets/activity-list.dart';
 import 'widgets/add-activity-form.dart';
-
+import 'widgets/camper-list.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
           ChooseActivityForm.routeName: (ctx) => ChooseActivityForm(),
           AddActivityForm.routeName: (ctx) => AddActivityForm(),
           ActivityList.routeName: (ctx) => ActivityList(),
+          CamperList.routeName: (ctx) =>CamperList(),
         },
       ),
     );
