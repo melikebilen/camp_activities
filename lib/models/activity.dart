@@ -5,7 +5,7 @@ class Activity {
   final String counselorName;
   final String period;
   final String department;
-  final List<Camper> campersThatSignedForActvity;
+  final List<String> campersThatSignedForActvity;
   Activity({this.uid,this.department ,this.activityName, this.counselorName, this.period,this.campersThatSignedForActvity});
 }
 
