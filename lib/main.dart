@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           AddActivityForm.routeName: (ctx) => AddActivityForm(),
           ActivityList.routeName: (ctx) => ActivityList(),
           CamperList.routeName: (ctx) =>CamperList(),
-         EnquiryScreen.routeName: (ctx)=> EnquiryScreen(),
+        EnquiryScreen.routeName: (ctx)=> EnquiryScreen(),
         },
       ),
     );

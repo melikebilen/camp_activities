@@ -31,6 +31,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
   Widget build(BuildContext context) {
     String uid; // CAMPER TILE'DAN ALICAZ BUNU
     Camper chosenCamper = ModalRoute.of(context).settings.arguments;
+    uid=chosenCamper.uid;
     final activities = Provider.of<List<Activity>>(context) ?? [];
    
 
@@ -86,7 +87,6 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                       elevation: 5,
                       margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
                       child: DropdownButtonFormField(
-                        
                         value: _currentAct2 ?? camper.activity2,
                         items: activities2.map((activity) {
                           return DropdownMenuItem(
@@ -128,7 +128,8 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                       color: Theme.of(context).primaryColor,
                       child: Text('Save'),
                       onPressed: () async {
-                        await CamperDatabase(uid: camper.uid).updateCamperData(
+                        await CamperDatabase(uid:camper.uid).updateCamperData(
+                           // camper.activity1?? _currentAct1,
                             _currentAct1 ?? camper.activity1,
                             _currentAct2 ?? camper.activity2,
                             _currentAct3 ?? camper.activity3);

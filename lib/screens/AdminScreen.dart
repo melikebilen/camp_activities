@@ -1,7 +1,9 @@
 import 'package:camp_activities/screens/ChooseDepartmentScreeen.dart';
 import 'package:camp_activities/screens/home.dart';
 import 'package:camp_activities/shared/loading.dart';
+import 'package:camp_activities/widgets/activity-list-2.dart';
 import 'package:camp_activities/widgets/activity-list.dart';
+import 'package:camp_activities/widgets/activity-list3.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:camp_activities/services/auth.dart';
@@ -21,7 +23,7 @@ class _AdminScreenState extends State<AdminScreen> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
     static List<Widget> _widgetOptions = <Widget>[
     ChooseDepartmentScreen(),
-     ActivityList(),
+    ActivityList3(),
     ActivityList(),
   ];
 
