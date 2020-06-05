@@ -21,6 +21,7 @@ class _CamperListState extends State<CamperList> {
     });
 
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
      appBar: AppBar(title: Text(chosenBunk),),
           body: ListView.builder(
         itemCount: campers.length,

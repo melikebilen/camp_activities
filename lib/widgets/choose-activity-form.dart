@@ -48,6 +48,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
           Camper camper = snapshot.data;
           print('I MADE SNAPSHOTS WOOOOOOOOOOOOOOOOOOORK ');
           return Scaffold(
+            backgroundColor: Colors.amberAccent,
             appBar: AppBar(
               title: Text('Choose ${camper.nameSurname}\'s activities'),
             ),

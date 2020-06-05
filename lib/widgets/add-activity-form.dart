@@ -32,6 +32,7 @@ class _AddActivityFormState extends State<AddActivityForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.amberAccent,
         appBar: AppBar(
           title: Text('New activity'),
         ),
@@ -46,7 +47,8 @@ class _AddActivityFormState extends State<AddActivityForm> {
                       //   'Add a new activity!',
                       //   style: TextStyle(fontSize: 18),
                       // ),
-                      TextFormField(
+                      SizedBox(height: 5,),
+                      TextFormField(                 
                         decoration: textInputDecoration.copyWith(
                             hintText: ('Activity Name')),
                         initialValue: _activityName ?? '',

@@ -34,7 +34,7 @@ class _CamperList2State extends State<CamperList2> {
                           widget.currentActivity.activityName ||
                       campers[index].activity2 ==
                           widget.currentActivity.activityName ||
-                      campers[index].activity1 ==
+                      campers[index].activity3 ==
                           widget.currentActivity.activityName
                   ? Padding(
                       padding: EdgeInsets.only(top: 8),
