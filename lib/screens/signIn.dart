@@ -34,75 +34,9 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink[100],
+      backgroundColor: Colors.amberAccent,
       appBar: AppBar(
-        title: Text('Sign In!'),
-        // actions: <Widget>[
-        //   //ADMİN SAYFASINA GEÇME KISMIIIIIIIIIIIIIIIIIIIII
-        //   FlatButton.icon(
-        //       onPressed: () {
-        //         showModalBottomSheet(
-        //             backgroundColor: Colors.pink[100],
-        //             context: context,
-        //             builder: (context) {
-        //               return Container(
-        //                   padding: EdgeInsets.symmetric(
-        //                       horizontal: 50, vertical: 70),
-        //                   child: Form(
-        //                       key: _formKey2,
-        //                       child: Column(
-        //                         children: <Widget>[
-        //                           TextFormField(
-        //                             decoration: textInputDec.copyWith(
-        //                                 hintText: ('Admin Email')),
-        //                             validator: (val) => val.isEmpty
-        //                                 ? 'You havent provided a valid email'
-        //                                 : null, //VALIDATOR RETURNS NULL IF NO ERROR OCCURS
-        //                             onChanged: (value) {
-        //                               //everytime user types in something, the function will run again and the value will be equal to whatever is written inside
-        //                               setState(() {
-        //                                 adminEmail = value;
-        //                               });
-        //                             },
-        //                           ),
-        //                           //   Text('Admin Login',style: TextStyle(color: Colors.white,fontSize: 30),),
-        //                           TextFormField(
-        //                             decoration: textInputDec.copyWith(
-        //                                 hintText: ('Admin Password')),
-        //                             obscureText: true,
-        //                             validator: (val) => val != adminPassword
-        //                                 ? 'Not allowed'
-        //                                 : null,
-        //                             onChanged: (value) {
-        //                               setState(() {
-        //                                 adminPassCheck = value;
-        //                               });
-        //                             },
-        //                           ),
-        //                           SizedBox(
-        //                             height: 10,
-        //                           ),
-        //                           RaisedButton(
-        //                             color: Colors.pink[200],
-        //                             child: Text('Admin Login'),
-        //                             onPressed: () async {
-        //                               if (_formKey2.currentState.validate()) {
-
-        //                                 Navigator.of(context)
-        //                                     .pushNamed(AdminScreen.routeName);
-        //                               }
-        //                             },
-        //                           ),
-        //                         ],
-        //                       )));
-        //             });
-        //       },
-        //       icon: Icon(Icons.accessibility),
-        //       label: Text(
-        //         'Admin',
-        //         style: TextStyle(color: Colors.white),
-        //       ))
-        // ],
+        title: Text('French Woods Sports and Arts Center'),
       ),
       body: loading
           ? Loading()
@@ -149,7 +83,8 @@ class _SignInState extends State<SignIn> {
                     ),
                     //SIGN IN BUTTON
                     RaisedButton(
-                      color: Colors.pink[200],
+                      elevation: 5,
+                      color: Colors.pink[400],
                       child: Text('Sign in',style: TextStyle(color: Colors.white),),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {

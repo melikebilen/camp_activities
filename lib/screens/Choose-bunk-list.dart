@@ -17,25 +17,29 @@ class _ChooseBunkListState extends State<ChooseBunkList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body:  Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            DropdownButtonFormField(
-              decoration:
-                  textInputDecoration.copyWith(hintText: ('Bunks')),
-              value: _bunk,
-              items: widget.bunks.map((bunk) {
-                return DropdownMenuItem(
-                  value: bunk,
-                  child: Text('$bunk'),
-                );
-              }).toList(),
-              onChanged: (val) {
-                setState(() {
-                  _bunk = val;
-                });
-              },
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButtonFormField(
+                decoration:
+                    textInputDecoration.copyWith(hintText: ('Bunks')),
+                value: _bunk,
+                items: widget.bunks.map((bunk) {
+                  return DropdownMenuItem(
+                    value: bunk,
+                    child: Text('$bunk'),
+                  );
+                }).toList(),
+                onChanged: (val) {
+                  setState(() {
+                    _bunk = val;
+                  });
+                },
+              ),
             ),
             RaisedButton(
               color: Theme.of(context).primaryColor,

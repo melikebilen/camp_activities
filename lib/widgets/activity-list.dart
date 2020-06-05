@@ -1,3 +1,4 @@
+import 'package:camp_activities/widgets/activity-list-2.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:camp_activities/models/activity.dart';
@@ -14,11 +15,9 @@ class ActivityList extends StatefulWidget {
 }
 
 class _ActivityListState extends State<ActivityList> {
-
-  
   @override
   Widget build(BuildContext context) {
-    String chosenDept= ModalRoute.of(context).settings.arguments ?? 'all';
+    String chosenDept = ModalRoute.of(context).settings.arguments ?? 'all';
     final activities = Provider.of<List<Activity>>(context) ?? [];
 
     // activities.forEach((activity){
@@ -28,16 +27,26 @@ class _ActivityListState extends State<ActivityList> {
     // }
     // );
     return Scaffold(
-      appBar: AppBar(title: Text(chosenDept),),
-          body: ListView.builder(
-        itemCount: activities.length,
-        itemBuilder:(context,index){
-         return AdminActivityTile(activity:activities[index],dept:chosenDept);
-      }
+      backgroundColor: Colors.amberAccent,
+      appBar: AppBar(
+        title: Text(chosenDept),
       ),
-    floatingActionButton:FloatingActionButton(child: Text('add activity'),
-    onPressed:(){ Navigator.of(context).pushNamed(AddActivityForm.routeName);},),
+      body: ListView.builder(
+          itemCount: activities.length,
+          itemBuilder: (context, index) {
+            return AdminActivityTile(
+                activity: activities[index], dept: chosenDept);
+          }),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.pink,
+        child: Text(
+          '  add activity',
+          style: TextStyle(color: Colors.white),
+        ),
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddActivityForm.routeName);
+        },
+      ),
     );
-  
-}
+  }
 }

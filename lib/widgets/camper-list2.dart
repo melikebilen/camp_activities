@@ -23,6 +23,7 @@ class _CamperList2State extends State<CamperList2> {
       print(camper.nameSurname);
     });
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
         appBar: AppBar(
           title: Text('${widget.currentActivity.activityName}'),
         ),

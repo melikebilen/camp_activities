@@ -12,8 +12,8 @@ class AttendanceTile extends StatefulWidget {
 }
 
 class _AttendanceTileState extends State<AttendanceTile> {
+ bool checked = false;
   @override
-  bool checked = false;
   Widget build(BuildContext context) {
     return CheckboxListTile(
       title: Text('${widget.camper.nameSurname}'),

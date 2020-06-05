@@ -22,6 +22,7 @@ class _ActivityList3State extends State<ActivityList3> {
     // }
     // );
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
           body: ListView.builder(
         itemCount: activities.length,
         itemBuilder:(context,index){

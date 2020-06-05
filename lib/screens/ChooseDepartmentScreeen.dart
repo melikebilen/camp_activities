@@ -13,6 +13,7 @@ class ChooseDepartmentScreen extends StatefulWidget {
     'Art',
     'Cooking',
     'Performing arts',
+    'all'
   ];
 
   @override
@@ -24,25 +25,29 @@ class _ChooseDepartmentScreenState extends State<ChooseDepartmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            DropdownButtonFormField(
-              decoration:
-                  textInputDecoration.copyWith(hintText: ('Department')),
-              value: _department,
-              items: widget.departments.map((dept) {
-                return DropdownMenuItem(
-                  value: dept,
-                  child: Text('$dept'),
-                );
-              }).toList(),
-              onChanged: (val) {
-                setState(() {
-                  _department = val;
-                });
-              },
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButtonFormField(
+                decoration:
+                    textInputDecoration.copyWith(hintText: ('Department')),
+                value: _department,
+                items: widget.departments.map((dept) {
+                  return DropdownMenuItem(
+                    value: dept,
+                    child: Text('$dept'),
+                  );
+                }).toList(),
+                onChanged: (val) {
+                  setState(() {
+                    _department = val;
+                  });
+                },
+              ),
             ),
             RaisedButton(
               color: Theme.of(context).primaryColor,
@@ -56,8 +61,10 @@ class _ChooseDepartmentScreenState extends State<ChooseDepartmentScreen> {
                     .pushNamed(ActivityList.routeName, arguments: _department);
               },
             ),
+            SizedBox(height: 50,),
             FloatingActionButton(
-              child: Text('add activity'),
+              backgroundColor: Colors.pink,
+              child: Text('  add activity', style:TextStyle(color: Colors.white),),
               onPressed: () {
                 Navigator.of(context).pushNamed(AddActivityForm.routeName);
               },

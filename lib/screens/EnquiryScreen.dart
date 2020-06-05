@@ -12,6 +12,7 @@ class _EnquiryScreenState extends State<EnquiryScreen> {
   Widget build(BuildContext context) {
     Activity currentActivity=ModalRoute.of(context).settings.arguments;
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body:CamperList2(currentActivity) ,);
     
     
