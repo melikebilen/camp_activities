@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:camp_activities/models/camper.dart';
 import 'camper-tile2.dart';
+import 'attendance-tile.dart';
 
 class CamperList2 extends StatefulWidget {
   static const routeName = '/camper-list';
@@ -21,7 +22,6 @@ class _CamperList2State extends State<CamperList2> {
     campers.forEach((camper) {
       print(camper.nameSurname);
     });
-
     return Scaffold(
         appBar: AppBar(
           title: Text('${widget.currentActivity.activityName}'),
@@ -40,15 +40,20 @@ class _CamperList2State extends State<CamperList2> {
                       child: Card(
                           elevation: 5,
                           margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
-                          child: ListTile(
-                              leading: CircleAvatar(
-                                child: Text('${campers[index].bunk}'),
-                                backgroundColor: Theme.of(context).primaryColor,
-                                radius: 25,
-                              ),
-                              title: Text('${campers[index].nameSurname}'))),
+                          child: AttendanceTile(campers[index]))
                     )
                   : SizedBox();
             }));
   }
 }
+
+//ListTile(
+//                              leading: CircleAvatar(
+//                                child: Text('${campers[index].bunk}'),
+//                                backgroundColor: Theme.of(context).primaryColor,
+//                                radius: 25,
+//                              ),
+//                              title: Text('${campers[index].nameSurname}'),                   
+//                              )
+//                              ),
+                              
