@@ -35,7 +35,10 @@ class ActivityDatabase {
 }
 
 
-  
+ Future getActivity(String uid) async {
+ await activityCollection.document(uid).get();
+}
+
   
 ///////////////////////////////BU EKLENDİ
   Future addNewActivity(String activityName, String counselorName,String period, String department) async {
