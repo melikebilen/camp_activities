@@ -17,17 +17,14 @@ class AdminActivityTile extends StatelessWidget {
     campers.forEach((camper) {
       print(camper.nameSurname);
     });
-
     if (dept == 'all') {
       return Padding(
           padding: EdgeInsets.only(top: 8),
           child: Card(
             margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
             elevation: 5,
-            child: activity.activityName == '2nd Minor' ||
-                  activity.activityName == '1st Minor' ||
-                  activity.activityName == '3rd Minor'
-              ?SizedBox.shrink() :ListTile(
+            child:     
+              ListTile(
               leading: CircleAvatar(
                 child: Text('${activity.period}'),
                 backgroundColor: Theme.of(context).primaryColor,
@@ -35,7 +32,9 @@ class AdminActivityTile extends StatelessWidget {
               ),
               title: Text('${activity.activityName}'),
               subtitle: Text('${activity.counselorName}'),
-              trailing: IconButton(
+              trailing:   activity.activityName == '2nd Minor' ||
+                  activity.activityName == '1st Minor' ||
+                  activity.activityName == '3rd Minor'? IconButton( icon: Icon(Icons.cancel), color: Colors.amberAccent,) : IconButton(
                 icon: Icon(Icons.delete), color: Colors.red,
                 // onPressed:()async{ await activityDatabase.deleteActivity(activity.uid);} ,
                 onPressed: () {
@@ -49,7 +48,7 @@ class AdminActivityTile extends StatelessWidget {
                               FlatButton(
                                   child: Text('Yes'),
                                   onPressed: () async {
-                                    /////////////////BURAYA EKLEME YAPIYORUZ
+                                 
                                     campers.forEach((camper) async {
                                       print(camper.nameSurname);
                                       if (activity.period == "1" &&
@@ -65,8 +64,10 @@ class AdminActivityTile extends StatelessWidget {
                                           camper.activity2 ==
                                               activity.activityName) {
                                         await CamperDatabase(uid: camper.uid)
-                                            .updateCamperData(camper.activity1,
-                                                "2nd Minor", camper.activity3);
+                                            .updateCamperData(
+                                              camper.activity1,
+                                                "2nd Minor", 
+                                                camper.activity3);
                                       }
                                       if (activity.period == "3" &&
                                           camper.activity3 ==
@@ -98,10 +99,8 @@ class AdminActivityTile extends StatelessWidget {
               child: Card(
                 margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
                 elevation: 5,
-                child:  activity.activityName == '2nd Minor' ||
-                  activity.activityName == '1st Minor' ||
-                  activity.activityName == '3rd Minor'
-              ?SizedBox.shrink() :ListTile(
+                child: 
+              ListTile(
                   leading: CircleAvatar(
                     child: Text('${activity.period}'),
                     backgroundColor: Theme.of(context).primaryColor,
@@ -123,6 +122,34 @@ class AdminActivityTile extends StatelessWidget {
                                   FlatButton(
                                       child: Text('Yes'),
                                       onPressed: () async {
+                                    campers.forEach((camper) async {
+                                      print(camper.nameSurname);
+                                      if (activity.period == "1" &&
+                                          camper.activity1 ==
+                                              activity.activityName) {
+                                        await CamperDatabase(uid: camper.uid)
+                                            .updateCamperData(
+                                                "1st Minor",
+                                                camper.activity2,
+                                                camper.activity3);
+                                      }
+                                      if (activity.period == "2" &&
+                                          camper.activity2 ==
+                                              activity.activityName) {
+                                        await CamperDatabase(uid: camper.uid)
+                                            .updateCamperData(
+                                              camper.activity1,
+                                                "2nd Minor", 
+                                                camper.activity3);
+                                      }
+                                      if (activity.period == "3" &&
+                                          camper.activity3 ==
+                                              activity.activityName) {
+                                        await CamperDatabase(uid: camper.uid)
+                                            .updateCamperData(camper.activity1,
+                                                camper.activity2, "3rd Minor");
+                                      }
+                                    });
                                         Navigator.of(context).pop();
                                         await activityDatabase
                                             .deleteActivity(activity.uid);
