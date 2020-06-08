@@ -51,7 +51,7 @@ class _AdminScreenState extends State<AdminScreen> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.local_activity),
-          title: Text('Tüm aktiviteler'),
+          title: Text('All activities'),
         ),
       ],
       currentIndex: _selectedIndex,

@@ -34,6 +34,11 @@ class _ActivityListState extends State<ActivityList> {
       body: ListView.builder(
           itemCount: activities.length,
           itemBuilder: (context, index) {
+                if(activities[index].activityName == '2nd Minor' ||
+                  activities[index].activityName == '1st Minor' ||
+                  activities[index].activityName == '3rd Minor'){
+                 return SizedBox(height: 0,);
+                  }
             return AdminActivityTile(
                 activity: activities[index], dept: chosenDept);
           }),
