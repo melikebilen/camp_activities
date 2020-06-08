@@ -24,7 +24,7 @@ class _AdminScreenState extends State<AdminScreen> {
     static List<Widget> _widgetOptions = <Widget>[
     ChooseDepartmentScreen(),
     ActivityList3(),
-    ActivityList(),
+    ActivityList2(),
   ];
 
   void _onItemTapped(int index) {

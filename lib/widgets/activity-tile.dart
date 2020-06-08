@@ -12,7 +12,10 @@ class ActivityTile extends StatelessWidget {
         child: Card(
           margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
           elevation: 5,
-          child: ListTile(
+          child: activity.activityName == '2nd Minor' ||
+                  activity.activityName == '1st Minor' ||
+                  activity.activityName == '3rd Minor'
+              ? null :ListTile(
                leading: CircleAvatar(child: Text('${activity.period}'),backgroundColor: Theme.of(context).primaryColor, radius: 25,),
               title: Text('${activity.activityName}'),
               subtitle: Text('${activity.counselorName}'),

@@ -63,7 +63,8 @@ class _HomeState extends State<Home> {
               // print(  'NAME SURNAME ${dataOfCounselor.nameSurname},IS ADMIN ${dataOfCounselor.isAdmin}');
               if (goToAdmin == false) {
                 if (dataOfCounselor.isAdmin) {
-                return ChooseDepartmentScreen();
+                return AdminScreen();
+             //   ChooseDepartmentScreen();
               //  AdminScreen();
                   
                   // goToAdmin = true;   

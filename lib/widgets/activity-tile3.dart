@@ -13,19 +13,26 @@ class ActivityTile3 extends StatelessWidget {
         child: Card(
           margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
           elevation: 5,
-          child: ListTile(
-            leading: CircleAvatar(
-              child: Text('${activity.period}'),
-              backgroundColor: Theme.of(context).primaryColor,
-              radius: 25,
-            ),
-            title: Text('${activity.activityName}'),
-            subtitle: Text('${activity.counselorName}'),
+          child:  
+          //activity.activityName == '2nd Minor' ||
+          //        activity.activityName == '1st Minor' ||
+          //        activity.activityName == '3rd Minor'
+          //    ? Container()
+          //    : 
+              ListTile(
+                  leading: CircleAvatar(
+                    child: Text('${activity.period}'),
+                    backgroundColor: Theme.of(context).primaryColor,
+                    radius: 25,
+                  ),
+                  title: Text('${activity.activityName}'),
+                  subtitle: Text('${activity.counselorName}'),
 
-            onTap: () => Navigator.of(context).pushNamed(
-                EnquiryScreen.routeName,
-                arguments: activity), //Aktivite adını parametre olarak ver
-          ),
+                  onTap: () => Navigator.of(context).pushNamed(
+                      EnquiryScreen.routeName,
+                      arguments:
+                          activity), //Aktivite adını parametre olarak ver
+                ),
         ));
   }
 }

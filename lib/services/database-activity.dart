@@ -25,8 +25,6 @@ class ActivityDatabase {
     return activityCollection.snapshots().map(_activityListFromSnapshot);
   }
 
-  
-
 
 
  Future deleteActivity(String uid) async {

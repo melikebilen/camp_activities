@@ -24,7 +24,10 @@ class AdminActivityTile extends StatelessWidget {
           child: Card(
             margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
             elevation: 5,
-            child: ListTile(
+            child: activity.activityName == '2nd Minor' ||
+                  activity.activityName == '1st Minor' ||
+                  activity.activityName == '3rd Minor'
+              ?SizedBox.shrink() :ListTile(
               leading: CircleAvatar(
                 child: Text('${activity.period}'),
                 backgroundColor: Theme.of(context).primaryColor,
@@ -95,7 +98,10 @@ class AdminActivityTile extends StatelessWidget {
               child: Card(
                 margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
                 elevation: 5,
-                child: ListTile(
+                child:  activity.activityName == '2nd Minor' ||
+                  activity.activityName == '1st Minor' ||
+                  activity.activityName == '3rd Minor'
+              ?SizedBox.shrink() :ListTile(
                   leading: CircleAvatar(
                     child: Text('${activity.period}'),
                     backgroundColor: Theme.of(context).primaryColor,
