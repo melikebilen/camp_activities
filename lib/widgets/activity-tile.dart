@@ -8,9 +8,9 @@ class ActivityTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: 8),
+        padding: EdgeInsets.only(top: 5),
         child: Card(
-          margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
+          margin: EdgeInsets.fromLTRB(15, 6, 15, 0),
           elevation: 5,
           child: ListTile(
                   leading: CircleAvatar(

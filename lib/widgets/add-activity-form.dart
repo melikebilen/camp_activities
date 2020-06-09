@@ -32,112 +32,126 @@ class _AddActivityFormState extends State<AddActivityForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.amberAccent,
-        appBar: AppBar(
-          title: Text('New activity'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(20, 6, 20, 0),
-          child: ListView(children: <Widget>[Container(
-                        child:Form(
+      backgroundColor: Colors.amberAccent,
+      appBar: AppBar(
+        title: Text('New activity'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(20, 6, 20, 0),
+        child: ListView(
+          children: <Widget>[
+            Container(
+              child: Form(
                 key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      // Text(
-                      //   'Add a new activity!',
-                      //   style: TextStyle(fontSize: 18),
-                      // ),
-                      SizedBox(height: 5,),
-                      TextFormField(                 
-                        decoration: textInputDecoration.copyWith(
-                            hintText: ('Activity Name')),
-                        initialValue: _activityName ?? '',
-                        validator: (val) =>
-                            val.isEmpty ? 'Please enter the activity name' : null,
-                        onChanged: (val) {
-                          setState(() {
-                            _activityName = val;
-                          });
-                        },
+                child: Column(
+                  children: <Widget>[
+                    // Text(
+                    //   'Add a new activity!',
+                    //   style: TextStyle(fontSize: 18),
+                    // ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    TextFormField(
+                      decoration: textInputDecoration.copyWith(
+                          hintText: ('Activity Name')),
+                      initialValue: _activityName ?? '',
+                      validator: (val) =>
+                          val.isEmpty ? 'Please enter the activity name' : null,
+                      onChanged: (val) {
+                        setState(() {
+                          _activityName = val;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      decoration: textInputDecoration.copyWith(
+                          hintText: ('Counselor Name')),
+                      initialValue: _counselorName ?? '',
+                      validator: (val) => val.isEmpty
+                          ? 'Please enter the counselor name'
+                          : null,
+                      onChanged: (val) {
+                        setState(() {
+                          _counselorName = val;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    DropdownButtonFormField(
+                      decoration: textInputDecoration.copyWith(
+                          hintText: ('Department')),
+                      value: _department ??null,
+                      items: departments.map((dept) {
+                        return DropdownMenuItem(
+                          value: dept,
+                          child: Text('$dept'),
+                        );
+                      }).toList(),
+                      validator: (val) => val==null
+                          ? 'Please choose department'
+                          : null,
+                      onChanged: (val) {
+                        setState(() {
+                          _department = val;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    DropdownButtonFormField(
+                      decoration:
+                          textInputDecoration.copyWith(hintText: ('Minors')),
+                      value: _period ?? null,
+                      items: periods.map((period) {
+                        return DropdownMenuItem(
+                          value: period,
+                          child: Text('$period'),
+                        );
+                      }).toList(),
+                      validator: (val) => val==null
+                          ? 'Please choose the period'
+                          : null,
+                      onChanged: (val) {
+                        setState(() {
+                          _period = val;
+                        });
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    RaisedButton(
+                      color: Theme.of(context).primaryColor,
+                      child: Text(
+                        'Add activity',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                            hintText: ('Counselor Name')),
-                        initialValue: _counselorName ?? '',
-                        validator: (val) =>
-                            val.isEmpty ? 'Please enter the counselor name' : null,
-                        onChanged: (val) {
-                          setState(() {
-                            _counselorName = val;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      DropdownButtonFormField(
-                        decoration:
-                            textInputDecoration.copyWith(hintText: ('Department')),
-                        value: _department,
-                        items: departments.map((dept) {
-                          return DropdownMenuItem(
-                            value: dept,
-                            child: Text('$dept'),
-                          );
-                        }).toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _department = val;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      DropdownButtonFormField(
-                        decoration:
-                            textInputDecoration.copyWith(hintText: ('Minors')),
-                        value: _period,
-                        items: periods.map((period) {
-                          return DropdownMenuItem(
-                            value: period,
-                            child: Text('$period'),
-                          );
-                        }).toList(),
-                        onChanged: (val) {
-                          setState(() {
-                            _period = val;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      RaisedButton(
-                        color: Theme.of(context).primaryColor,
-                        child: Text(
-                          'Add activity',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () async {
-                          if (_formKey.currentState.validate()) {
-                            await activityDatabaseObj.addNewActivity(_activityName,
-                                _counselorName, _period, _department);
-                            Navigator.pop(context);
-                          }
-                        },
-                      )
-                    ],
-                  ),
+                      onPressed: () async {
+                        if (_formKey.currentState.validate()) {
+                          await activityDatabaseObj.addNewActivity(
+                              _activityName,
+                              _counselorName,
+                              _period,
+                              _department);
+                          Navigator.pop(context);
+                        }                    
+                      },
+                    )
+                  ],
                 ),
-            ),],
-                    
-          ),
-          ),
-        );
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
