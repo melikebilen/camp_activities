@@ -43,7 +43,7 @@ class _CounselorScreenState extends State<CounselorScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            title: Text('Enquiry'),
+            title: Text('Attendance'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.local_activity),

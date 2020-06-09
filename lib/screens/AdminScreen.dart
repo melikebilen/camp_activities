@@ -1,3 +1,4 @@
+import 'package:camp_activities/screens/Choose-bunk-list.dart';
 import 'package:camp_activities/screens/ChooseDepartmentScreeen.dart';
 import 'package:camp_activities/screens/home.dart';
 import 'package:camp_activities/shared/loading.dart';
@@ -24,7 +25,7 @@ class _AdminScreenState extends State<AdminScreen> {
     static List<Widget> _widgetOptions = <Widget>[
     ChooseDepartmentScreen(),
     ActivityList3(),
-    ActivityList2(),
+    ChooseBunkList(),
   ];
 
   void _onItemTapped(int index) {
@@ -47,11 +48,11 @@ class _AdminScreenState extends State<AdminScreen> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.business),
-          title: Text('Enquiry'),
+          title: Text('Attendance'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.local_activity),
-          title: Text('All activities'),
+          title: Text('Choose Activity'),
         ),
       ],
       currentIndex: _selectedIndex,

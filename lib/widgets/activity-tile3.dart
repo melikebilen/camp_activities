@@ -9,7 +9,7 @@ class ActivityTile3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: 8),
+        padding: EdgeInsets.only(top: 5,bottom: 5),
         child: Card(
           margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
           elevation: 5,
