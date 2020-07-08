@@ -61,7 +61,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('Choose ${camper.nameSurname}\'s first minor'),
+                    Text('Choose ${camper.nameSurname}\'s first minor',style: TextStyle(color: Colors.pink),),
                     Card(
                       elevation: 5,
                       margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
@@ -83,7 +83,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text('Choose ${camper.nameSurname}\'s second minor'),
+                    Text('Choose ${camper.nameSurname}\'s second minor',style: TextStyle(color: Colors.pink),),
                     Card(
                       elevation: 5,
                       margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
@@ -105,7 +105,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('Choose ${camper.nameSurname}\'s third minor'),
+                    Text('Choose ${camper.nameSurname}\'s third minor',style: TextStyle(color: Colors.pink),),
                     Card(
                       margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
                       elevation: 5,
@@ -127,7 +127,7 @@ class _ChooseActivityFormState extends State<ChooseActivityForm> {
                     SizedBox(height: 10,),
                     RaisedButton(
                       color: Theme.of(context).primaryColor,
-                      child: Text('Save'),
+                      child: Text('Save',style: TextStyle(color: Colors.white),),
                       onPressed: () async {
                         await CamperDatabase(uid:camper.uid).updateCamperData(
                            // camper.activity1?? _currentAct1,

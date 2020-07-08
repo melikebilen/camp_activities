@@ -44,11 +44,6 @@ class CamperDatabase {
  }
 
 
-//   Stream<Camper> get currentCamperData{ //STREAM BUILDERDAN DINLEYECEĞİM ŞEY BU!
-//    return camperCollection.document(uid).snapshots().map(_chosenCamperData);
-//  }
-
-
 
   Future updateCamperData(String act1, String act2, String act3) async {
     return await camperCollection.document(uid).updateData({
@@ -58,3 +53,6 @@ class CamperDatabase {
     }); //if the uid doesnt exist, it'll create one for it
   }
 }
+
+
+
