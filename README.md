@@ -46,14 +46,17 @@ https://www.youtube.com/watch?v=SF_GSvQPmHM&t=2s
    ## Steps to use the code
    
     1) Follow the steps in the following link to download Flutter and the IDE that you prefer. Make sure you have Android 
+    
     Studio so that you can use the emulator. I have used VSCode but feel free to use whatever suits you best.
     
     https://flutter.dev/docs/get-started/install
    
     2) After setting up the environment, you can download the zip file. You should unzip the file that you have downloaded. 
+    
     Then open the file at the IDE you prefer.
     
     3) After opening the file, you must update the plugins and dependencies that i have stated above. Flutter gets updated so quickly so make sure that you update.
+    
     To update both the Flutter SDK and the packages that your app depends on, use the flutter upgrade command from the root of your app.
 
 	"flutter upgrade"
